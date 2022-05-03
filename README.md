@@ -12,7 +12,7 @@ Pythonic interface for easy imports to other projects.
     > pip install py-GameOfLife
 
 ## USAGE:
-    python3 main.py [options]
+    python3 GameOfLife [options]
     Options:
         -h, --help                      :   Show this help message and exit.
         -v, --version                   :   Show version and exit.
@@ -24,6 +24,9 @@ Pythonic interface for easy imports to other projects.
         stepper_mode=<bool>             :   Step through generations.
         next_gen_interval=<float>       :   Display new generation with given 
                                             seconds of interval.
+        # In stepper mode, use `Enter` key to move to next generation. 
+        # Use `CTRL+C` key-combination to exit in non stepper mode to exit.
+        # Use 'Q' key in stepper mode to exit.
     Example:
-        python3 main.py board_size=50 show_generation_changes=False clear_terminal=True show_board_with_icons=true stepper_mode=False next_gen_interval=0.5
+        python3 -m GameOfLife board_size=50 show_generation_changes=False clear_terminal=True show_board_with_icons=true stepper_mode=False next_gen_interval=0.5
 
