@@ -13,7 +13,9 @@ jobs:
       - name: Build 🛠 distribution 📦 
         run: |
             old_version=$(grep "^__version__ =" GameOfLife/__init__.py | sed "s/^__version__ = '\(.*\)'.*$/\1/" | sed -E 's/.*"(.*)"/\1/g')
+            echo $old_version
             new_version="$old_version-${{github.ref}}-$(date +%s)"
+            echo $new_version
             sed -i.backup "s/__version__ = \"[^\"]*\"/__version__ = \"${new_version}\"/g" GameOfLife/__init__.py 
             pip install wheel
             python3 setup.py sdist bdist_wheel  
@@ -22,4 +24,4 @@ jobs:
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
-          
+
