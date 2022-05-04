@@ -15,7 +15,7 @@ jobs:
             old_version=$(grep "^__version__ =" GameOfLife/__init__.py | sed "s/^__version__ = '\(.*\)'.*$/\1/" | sed -E 's/.*"(.*)"/\1/g')
             echo "Version: $old_version"
             githubBranch=$(echo '${{github.ref}}' | sed "s/.*\///")
-            new_version="$old_version.$githubBranch.$(date +%s)"
+            new_version="$old_version.$githubBranch$(date +%s)"
             echo "Branch-Build-Version: $new_version"
             sed -i.backup "s/__version__ = \"[^\"]*\"/__version__ = \"${new_version}\"/g" GameOfLife/__init__.py 
             pip install wheel
