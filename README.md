@@ -9,7 +9,7 @@ Pythonic interface for easy imports to other projects.
     Check `GameDriver.py` for reference
 
 ## INSTALLATION:
-    > pip install py-GameOfLife
+    > pip install py-GameOfLife-simplified
 
 ## USAGE:
     python3 GameOfLife [options]
