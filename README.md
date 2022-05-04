@@ -1,4 +1,4 @@
-[![Build and Publish to PyPI](https://github.com/avinashkarhana/GameOfLife/actions/workflows/publish-to-pypi.yml/badge.svg)](https://github.com/avinashkarhana/GameOfLife/actions/workflows/publish-to-pypi.yml)
+[![Build and Publish to PyPI](https://github.com/avinashkarhana/GameOfLife/actions/workflows/publish-to-pypi-and-testpypi.yml/badge.svg?branch=master)](https://github.com/avinashkarhana/GameOfLife/actions/workflows/publish-to-pypi-and-testpypi.yml)
 
 # GameDriver
 
