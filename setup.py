@@ -18,7 +18,7 @@ def get_version(rel_path):
     raise RuntimeError("Unable to find version string.")
 
 setup(
-    name="py-GameOfLife",
+    name="py-GameOfLife-simplified",
     version=get_version("GameOfLife/__init__.py"),
     author="Avinash Karhana",
     author_email="avinashkarhana1@gmail.com",
