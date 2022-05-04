@@ -14,6 +14,24 @@ class GameOfLife:
         self.header_message = "Game of Life"
         self.footer_message = ""
     
+    def set_board_size(self, size):
+        self.board_size = size
+    
+    def set_clear_terminal(self, clear):
+        self.clear_terminal = clear
+
+    def set_show_generation_changes(self, show):
+        self.show_generation_changes = show
+
+    def set_show_board_with_icons(self, show):
+        self.show_board_with_icons = show
+
+    def set_header_message(self, message):
+        self.header_message = message
+    
+    def set_footer_message(self, message):
+        self.footer_message = message
+
     def initialize(self):
         self.board = []
         for i in range(self.board_size):

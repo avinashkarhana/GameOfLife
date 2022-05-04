@@ -1,0 +1,27 @@
+name: Publish Python package 📦 to PyPI and Test-PyPI
+on: push
+jobs:
+  build-n-publish-to-testPyPi:
+    name: Build and publish Python 🐍 distributions 📦 to TestPyPI
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python 3.9 🐍
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Build 🛠 distribution 📦 
+        run: |
+            old_version=$(grep "^__version__ =" GameOfLife/__init__.py | sed "s/^__version__ = '\(.*\)'.*$/\1/" | sed -E 's/.*"(.*)"/\1/g')
+            echo "Version: $old_version"
+            new_version="$old_version.$(date +%s)"
+            echo "Branch-Build-Version: $new_version"
+            sed -i.backup "s/__version__ = \"[^\"]*\"/__version__ = \"${new_version}\"/g" GameOfLife/__init__.py 
+            pip install wheel
+            python3 setup.py sdist bdist_wheel  
+      - name: Publish 📤 distribution 📦 to Test PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+
